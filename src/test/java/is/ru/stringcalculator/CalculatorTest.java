@@ -34,4 +34,8 @@ public class CalculatorTest {
     	assertEquals(0, Calculator.add(","));
     }
 
+    @Test
+    public void testUnknownNumberOfArguments() {
+    	assertEquals(10, Calculator.add("0,1,1,1,1,1,1,1,1,2"));
+    }
 }
