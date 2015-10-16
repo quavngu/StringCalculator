@@ -35,7 +35,9 @@ public class Calculator {
         	if(toInt(number) < 0) {
         		negativeNumbers += number + ",";
         	}
-		    total += toInt(number);
+		    if(toInt(number) <= 1000) {
+				total += toInt(number);
+        	}
 		}
 
 		if(!negativeNumbers.isEmpty()) {
