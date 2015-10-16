@@ -30,8 +30,17 @@ public class Calculator {
       
     private static int sum(String[] numbers){
  	    int total = 0;
+ 	    String negativeNumbers = "";
         for(String number : numbers){
+        	if(toInt(number) < 0) {
+        		negativeNumbers += number + ",";
+        	}
 		    total += toInt(number);
+		}
+
+		if(!negativeNumbers.isEmpty()) {
+			String temp = negativeNumbers.substring(0, negativeNumbers.length()-1);
+			throw new RuntimeException("Negatives not allowed:"+ temp);
 		}
 		return total;
     }
