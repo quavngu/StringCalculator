@@ -63,6 +63,12 @@ public class CalculatorTest {
     	assertEquals(3, Calculator.add("//;\n1;2"));
     }
 
+    //4
+    @Test
+    public void testDelimiters2() {
+    	assertEquals(5, Calculator.add("//!\n2!3"));
+    }
+
     //5
     @Test
     public void testNegativeException() {
