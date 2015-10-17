@@ -6,6 +6,23 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
+		else if(text.contains("//[")) {
+			String temp = "";
+			for(int i = 0 ; i < text.length() ; i++) {
+				if(text.charAt(i) != '/' && text.charAt(i) != '[') {
+					temp += text.charAt(i);
+				}
+			}
+			String temp2 = temp.substring(0, temp.indexOf(']'));
+			String delimiters = "";
+			for(int j = 0 ; j < temp2.length() ; j++) {
+				delimiters += "\\" + temp2.charAt(j);
+			}
+
+			delimiters = "(" + delimiters + ")";
+			String numbers = temp.substring(temp.indexOf(']')+2, temp.length());
+			return sum(splitNumbers(numbers, delimiters));
+		}
 		else if(text.contains("//")) {
 			String delimiters = text.substring(text.indexOf("//") + 2, text.indexOf("\n"));
 			String numbers = text.substring(text.lastIndexOf("\n") + 1);
