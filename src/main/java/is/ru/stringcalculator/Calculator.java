@@ -9,14 +9,14 @@ public class Calculator {
 		else if(text.contains("//[")) {
 			String temp = "";
 			for(int i = 0 ; i < sizeOfString(text) ; i++) {
-				if(text.charAt(i) != '/' && text.charAt(i) != '[') {
-					temp += text.charAt(i);
+				if(at(text, i) != '/' && at(text, i) != '[') {
+					temp += at(text, i);
 				}
 			}
 			String temp2 = temp.substring(0, temp.indexOf(']'));
 			String delimiters = "";
 			for(int j = 0 ; j < sizeOfString(temp2) ; j++) {
-				delimiters += "\\" + temp2.charAt(j);
+				delimiters += "\\" + at(temp2, j);
 			}
 
 			delimiters = "(" + delimiters + ")";
@@ -39,6 +39,10 @@ public class Calculator {
 
 	private static int sizeOfString(String s) {
 		return s.length();
+	}
+
+	private static char at(String s, int iter) {
+		return s.charAt(iter);
 	}
 
 	private static int toInt(String number){
